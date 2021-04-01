@@ -12,7 +12,7 @@ class GrandTour_MIT(gym.Env):
         for i in close:
             row=i[0]
             column=i[1]
-            self.state[row][column]=99
+            self.state[row][column]=9
         default_state_row=5
         default_state_column=5
         self.state[default_state_row][default_state_column]='i'
@@ -46,7 +46,7 @@ class GrandTour_MIT(gym.Env):
                 self.reward-=1
             else:
                 self.reward+=1
-                self.state[self.row-1][self.column]=action
+                self.state[self.row][self.column]=action
                 self.row-=1                
         elif action=='s':
             if self.row+1>11:
@@ -57,7 +57,7 @@ class GrandTour_MIT(gym.Env):
                 self.reward-=1
             else:
                 self.reward+=1
-                self.state[self.row+1][self.column]=action
+                self.state[self.row][self.column]=action
                 self.row+=1
         elif action=='a':
             if self.column-1<0:
@@ -68,7 +68,7 @@ class GrandTour_MIT(gym.Env):
                 self.reward-=1
             else:
                 self.reward+=1
-                self.state[self.row][self.column-1]=action
+                self.state[self.row][self.column]=action
                 self.column-=1                
         elif action=='d':
             if self.column+1>11:
@@ -79,9 +79,9 @@ class GrandTour_MIT(gym.Env):
                 self.reward-=1
             else:
                 self.reward+=1
-                self.state[self.row][self.column+1]=action
+                self.state[self.row][self.column]=action
                 self.column+=1                               
-            self.render()
+        self.render()
 
 #         win = self.check()
 #         if(win==0):
@@ -127,7 +127,7 @@ class GrandTour_MIT(gym.Env):
         for i in close:
             row=i[0]
             column=i[1]
-            self.state[row][column]=99
+            self.state[row][column]=9
         default_state_row=5
         default_state_column=5
         self.state[default_state_row][default_state_column]='i'
