@@ -29,7 +29,41 @@ class GrandTour_MIT(gym.Env):
         self.add = [0, 0]
         
     def check_done(self):
-        if self.state[self.row-1][self.column]!=0 & self.state[self.row+1][self.column]!=0 & self.state[self.row][self.column-1]!=0 & self.state[self.row][self.column+1]!=0:
+        count_block=0
+        
+        # row -1, column
+        if self.row-1<0:
+            count_block+=1
+        elif self.state[self.row-1][self.column]!=0:
+            count_block+=1
+        else:
+            pass
+        
+        # row +1, column
+        if self.row+1>11:
+            count_block+=1
+        elif self.state[self.row+1][self.column]!=0:
+            count_block+=1
+        else:
+            pass
+        
+        # row, column-1
+        if self.column-1<0:
+            count_block+=1
+        elif self.state[self.row][self.column-1]!=0:
+            count_block+=1
+        else:
+            pass
+        
+        # row, column+1
+        if self.column+1>11:
+            count_block+=1
+        elif self.state[self.row][self.column+1]!=0:
+            count_block+=1
+        else:
+            pass
+        
+        if count_block==4:
             return 1
         else:
             return 0
