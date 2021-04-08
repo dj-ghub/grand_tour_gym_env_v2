@@ -118,7 +118,8 @@ class GrandTour_MIT(gym.Env):
                 self.state[self.row][self.column]=action
                 self.column+=1                               
         self.done=self.check_done()
-        return [self.state, self.reward, self.done, {}]
+        self.info=[self.row,self.column]
+        return [self.state, self.reward, self.done, self.info]
     
     def reset(self):
         self.state = [[0]*12 for n in range(0,12)]
