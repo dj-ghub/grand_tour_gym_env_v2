@@ -75,10 +75,10 @@ class GrandTour_MIT(gym.Env):
             return [self.state, self.reward, self.done, self.add]
         elif action==1:
             if self.row-1<0:
-                print("invalid step")
+#                 print("invalid step")
                 self.reward-=1
             elif self.state[self.row-1][self.column]!=0:
-                print("invalid step")
+#                 print("invalid step")
                 self.reward-=1
             else:
                 self.reward+=1
@@ -86,10 +86,10 @@ class GrandTour_MIT(gym.Env):
                 self.row-=1                
         elif action==3:
             if self.row+1>11:
-                print("invalid step")
+#                 print("invalid step")
                 self.reward-=1
             elif self.state[self.row+1][self.column]!=0:
-                print("invalid step")
+#                 print("invalid step")
                 self.reward-=1
             else:
                 self.reward+=1
@@ -97,10 +97,10 @@ class GrandTour_MIT(gym.Env):
                 self.row+=1
         elif action==4:
             if self.column-1<0:
-                print("invalid step")
+#                 print("invalid step")
                 self.reward-=1
             elif self.state[self.row][self.column-1]!=0:
-                print("invalid step")
+#                 print("invalid step")
                 self.reward-=1
             else:
                 self.reward+=1
@@ -108,10 +108,10 @@ class GrandTour_MIT(gym.Env):
                 self.column-=1                
         elif action==2:
             if self.column+1>11:
-                print("invalid step")
+#                 print("invalid step")
                 self.reward-=1
             elif self.state[self.row][self.column+1]!=0:
-                print("invalid step")
+#                 print("invalid step")
                 self.reward-=1
             else:
                 self.reward+=1
@@ -138,7 +138,7 @@ class GrandTour_MIT(gym.Env):
         self.reward = 0
         return self.state
 
-    def render(self):
+    def render(self, mode='human'):
         for i in range(12):
             for j in range(12):
                 print(self.state[i][j],end=" ")
